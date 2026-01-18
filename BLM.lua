@@ -53,7 +53,7 @@ local sets = {
         Neck = 'Prudence torque',
         Neck = 'Jeweled Collar',
         Ear1 = 'Novia Earring',
-		Ear2 = 'Novio Earring',
+		Ear2 = 'Magnetic Earring',
         Body = { Name = 'Sorcerer\'s Coat', Priority = 100 },
         Hands = 'Zenith Mitts',
         -- Hands = 'Merman\'s Bangles',
@@ -70,6 +70,7 @@ local sets = {
         Ammo = { Name = 'Hedgehog Bomb', Priority = 100 },
         Neck = { Name = 'Uggalepih Pendant', Priority = 100 },
         Ear1 = { Name = 'Loquac. Earring', Priority = 100 },
+		Ear2 = { Name = 'Magnetic Earring', Priority = 100 },
         Hands = { Name = 'Zenith Mitts', Priority = 100 },
         Ring1 = { Name = 'Tamas Ring', Priority = 100 },
         Waist = { Name = 'Hierarch Belt', Priority = 100 },
@@ -82,6 +83,7 @@ local sets = {
         Neck = 'Checkered Scarf',
         -- Neck = 'Pch. Collar',
         Ear1 = 'Relaxing Earring',
+        Ear2 = 'Magnetic Earring',
         Body = 'Wzd. Coat +1',
 		Hands = 'Hydra Gloves',
 		Legs = 'Hydra Brais',
@@ -157,7 +159,7 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Merman\'s Earring',
-        Ear2 = 'Merman\'s Earring', -- 8
+		Ear2 = 'Magnetic Earring',
         Waist = 'Silver Obi +1', -- 8
         Feet = 'Wizard\'s Sabots', -- 20
         Ammo = 'Tiphia Sting',
@@ -169,7 +171,7 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Merman\'s Earring',
-        Ear2 = 'Merman\'s Earring',
+		Ear2 = 'Magnetic Earring',
         Waist = 'Silver Obi +1', -- 8 
         Feet = 'Wizard\'s Sabots', -- 20
         Ammo = 'Tiphia Sting',
@@ -202,6 +204,7 @@ local sets = {
     ConserveMP = {
         Ammo = 'Dream Sand',
         Body = 'Igqira Weskit',
+		Ear2 = 'Magnetic Earring',
         -- Back = 'Maledictor\'s Shawl',
         Feet = 'Src. Sabots +1',
     },
@@ -211,6 +214,7 @@ local sets = {
         Head = 'Hydra Beret', -- 8
         Neck = 'Benign Necklace', -- 2
         Ear1 = 'Novia Earring', -- 7
+		Ear2 = 'Magnetic Earring',
         -- Body = 'Hydra Doublet', -- 9
         Hands = 'Hydra Gloves', -- 5
         Ring1 = 'Tamas Ring',
@@ -279,6 +283,7 @@ local sets = {
         Head = 'Zenith Crown',
         Neck = 'Enhancing Torque',
         Ear1 = 'Loquac. Earring',
+		Ear2 = 'Magnetic Earring',
         -- Body = 'Hydra Doublet',
         Hands = 'Src. Gloves +1',
         Ring1 = 'Tamas Ring',
@@ -429,7 +434,7 @@ local sets = {
         Head = { Name = 'Zenith Crown', Priority = 100 },
         Neck = 'Prudence Torque',
         Ear1 = 'Novio Earring',
-        -- Ear2 = 'Magnetic Earring',
+        Ear2 = 'Magnetic Earring',
         Body = 'Igqira Weskit',
         Hands = { Name = 'Zenith Mitts', Priority = 100 },
         Ring1 = 'Tamas Ring',
