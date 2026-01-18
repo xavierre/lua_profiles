@@ -28,6 +28,23 @@ local sorcerers_tonban = {
     Legs = 'Sorcerer\'s Tonban',
 }
 
+local sorcerers_earring_hp_threshold = 360 -- HP at which Sorcerer's Earring set is equipped
+local sorcerers_earring = { -- 1440
+    Main = 'Terra\'s Staff',
+    --Ammo = 'Hedgehog Bomb',
+    Head = 'Genie Tiara',
+    --Neck = 'Pch. Collar',
+    Ear1 = 'Cassie Earring',
+    Ear2 = 'Sorcerer\'s Earring',
+    Body = 'Sorcerer\'s Coat',
+    --Hands = 'Garden Bangles',
+    Ring1 = 'Bomb Queen Ring',
+    --Ring2 = 'Sattva Ring',
+    --Back = 'Gigant Mantle',
+    --Waist = 'Ocean Sash',
+    Legs = 'Igqira Lappas',
+    --Feet = 'Marine M Boots',
+}
 local sets = {
     Idle = {
    		Main = 'Terra\'s staff', 
@@ -457,7 +474,9 @@ sets.opuntia_hoop = opuntia_hoop
 sets.diabolos_pole = diabolos_pole
 sets.sorcerers_ring = sorcerers_ring
 sets.sorcerers_tonban = sorcerers_tonban
+sets.sorcerers_earring = sorcerers_earring
 profile.Sets = gcmage.AppendSets(sets)
+
 
 profile.HandleAbility = function()
     gcmage.DoAbility()
@@ -508,6 +527,13 @@ profile.HandleDefault = function()
     local isPhysical = gcdisplay.IdleSet == 'Normal' or gcdisplay.IdleSet == 'Alternate' or gcdisplay.IdleSet == 'DT'
     if (spikes > 0 and isPhysical) then
         gFunc.EquipSet('opuntia_hoop')
+    end
+
+    local player = gData.GetPlayer()
+    if (not gcinclude.horizon_safe_mode) then
+        if (player.HP <= sorcerers_earring_hp_threshold) then
+            gFunc.EquipSet('sorcerers_earring')
+        end
     end
 
     gFunc.EquipSet(gcinclude.BuildLockableSet(gData.GetEquipment()))
