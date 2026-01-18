@@ -4,7 +4,7 @@ local display_messages = true -- set to true if you want chat log messages to ap
 
 local load_stylist = true -- set to true to just load stylist on game start. this is purely for convenience since putting it in scripts doesn't work
 
-local toggleDisplayHeadOnAbility = Off
+local toggleDisplayHeadOnAbility = true
 
 -- Comment out the equipment within these sets if you do not have them or do not wish to use them
 local kingdom_aketon = {
@@ -14,7 +14,7 @@ local republic_aketon = {
     -- Body = 'Republic Aketon',
 }
 local federation_aketon = {
-    Body = 'Federation Aketon',
+    -- Body = 'Federation Aketon',
 }
 local ducal_aketon = {
     -- Body = 'Ducal Aketon',
@@ -30,7 +30,7 @@ local skulkers_cape = {
 }
 
 -- Set this to true to confirm that actually read the README.md and set up the equipment listed above correctly
-local i_can_read_and_follow_instructions_test = true
+local i_can_read_and_follow_instructions_test = false
 
 -- Add additional equipment here that you want to automatically lock when equipping
 local LockableEquipment = {
@@ -43,13 +43,13 @@ local LockableEquipment = {
     ['Ear1'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
     ['Ear2'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
     ['Body'] = T{'Custom Gilet +1', 'Custom Top +1', 'Magna Gilet +1', 'Magna Top +1', 'Savage Top +1', 'Elder Gilet +1', 'Wonder Maillot +1', 'Wonder Top +1', 'Mandra. Suit'},
-    ['Hands'] = T{'Dream Mittens +1'},
+    ['Hands'] = T{},
     ['Ring1'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
     ['Ring2'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
     ['Back'] = T{},
     ['Waist'] = T{},
     ['Legs'] = T{},
-    ['Feet'] = T{'Powder Boots', 'Dream Boots +1'},
+    ['Feet'] = T{'Powder Boots'}
 }
 
 --[[
@@ -258,24 +258,19 @@ function gcinclude.DoDefaultOverride(isMelee)
     end
     if (gcdisplay.IdleSet == 'Evasion') then gFunc.EquipSet('Evasion') end
 
-    if ((player.IsMoving == true)
-        and (
-            gcdisplay.IdleSet == 'Normal'
+    if (player.IsMoving == true) then
+        if (gcdisplay.IdleSet == 'Normal'
             or gcdisplay.IdleSet == 'Alternate'
             or gcdisplay.IdleSet == 'DT'
             or gcdisplay.IdleSet == 'Evasion'
-            or gcdisplay.IdleSet == 'LowAcc'
-            or gcdisplay.IdleSet == 'HighAcc'
-        )
-    ) then
-        if (isMageJobs:contains(player.MainJob) and (gcdisplay.GetCycle('TP') ~= 'Off') and player.Status == 'Engaged') then
-            if (environment.Time >= 6 and environment.Time < 18) then
-                gFunc.EquipSet('DT')
-            else
-                gFunc.EquipSet('DTNight')
-            end
+        ) then
+            gFunc.EquipSet('Movement')
         end
-        gFunc.EquipSet('Movement')
+
+        if (player.Status == 'Engaged') then
+            gFunc.EquipSet('Movement')
+            gFunc.EquipSet('Movement_TP')
+        end
     end
 
     if (gcdisplay.IdleSet == 'MDT') then gFunc.EquipSet('MDT') end

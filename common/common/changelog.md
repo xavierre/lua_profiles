@@ -450,3 +450,8 @@
 
 ### v2.0.10
 - Mages - Use Enhancing set for sneak / invisible
+
+### v2.0.11
+- BLM - Implements BLM sorceror's earring logic
+- All Jobs - Implements Movement_TP set to better differentiate movement sets when idle vs engaged
+- Mages - Implements /tptoggle command to allow single button toggling between last TP set and Off

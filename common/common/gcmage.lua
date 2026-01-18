@@ -1,11 +1,11 @@
 -- Set to true if you want messages every time Mst.Cst. Bracelets are used.
-local log_conquest = true
+local log_conquest = false
 
 -- This uses the BLM-advanced.lua to calculate more precise Yellow sets. Do not use this unless you know what you're doing.
 local blm_advanced = false
 
 -- Set to true if you have both Dark Earring and Abyssal earring to turn off Diabolos's Earring override for Dark Magic sets
-local dark_and_abyssal_earrings = false
+local dark_and_abyssal_earrings = true
 
 -- Comment out the equipment within these sets if you do not have them or do not wish to use them
 local claustrum = {
@@ -13,13 +13,13 @@ local claustrum = {
 }
 
 local fire_staff = {
-    Main = 'Fire Staff',
+    Main = 'Vulcan\'s Staff',
 }
 local earth_staff = {
     Main = 'Terra\'s Staff',
 }
 local water_staff = {
-    Main = 'Water Staff',
+    Main = 'Neptune\'s Staff',
 }
 local wind_staff = {
     Main = 'Auster\'s Staff',
@@ -31,14 +31,14 @@ local thunder_staff = {
     Main = 'Jupiter\'s Staff',
 }
 local light_staff = {
-    Main = 'Light Staff',
+    Main = 'Apollo\'s Staff',
 }
 local dark_staff = {
     Main = 'Pluto\'s Staff',
 }
 
 local karin_obi = {
-    -- Waist = 'Karin Obi',
+    Waist = 'Karin Obi',
 }
 local dorin_obi = {
     -- Waist = 'Dorin Obi',
@@ -56,7 +56,7 @@ local rairin_obi = {
     Waist = 'Rairin Obi',
 }
 local korin_obi = {
-    -- Waist = 'Korin Obi',
+    Waist = 'Korin Obi',
 }
 local anrin_obi = {
     Waist = 'Anrin obi',
@@ -69,19 +69,19 @@ local master_casters_bracelets = {
     Hands = 'Mst.Cst. Bracelets',
 }
 local wizards_mantle = {
-    Back = 'Wizard\'s Mantle',
+    -- Back = 'Wizard\'s Mantle',
 }
 local republic_gold_medal = { -- Note: Disabled for BRD
-    -- Neck = 'Rep.Gold Medal',
+    Neck = 'Rep.Gold Medal',
 }
 local diabolos_earring = { -- Forces usage of this for NukeACC, EnfeebleACC, and Dark Magic
-    Ear2 = 'Diabolos\'s Earring',
+    -- Ear2 = 'Diabolos\'s Earring',
 }
 local diabolos_ring = {
     Ring2 = 'Diabolos\'s Ring',
 }
 local ice_ring = {
-    Ring2 = 'Ice Ring',
+    -- Ring2 = 'Ice Ring',
 }
 local water_ring = {
     -- Ring2 = 'Water Ring',
@@ -95,11 +95,11 @@ local tp_fenrirs_earring = {
     -- Ear2 = 'Fenrir\'s Earring',
 }
 local tp_diabolos_earring = {
-    Ear2 = 'Diabolos\'s Earring',
+    -- Ear2 = 'Diabolos\'s Earring',
 }
 
 -- Set this to true to confirm that actually read the README.md and set up the equipment listed above correctly
-local i_can_read_and_follow_instructions_test = true
+local i_can_read_and_follow_instructions_test = false
 
 --[[
 --------------------------------
@@ -118,7 +118,7 @@ local AliasList = T{
     'mode', -- RDM / WHM / BLM
     'csstun','vert', -- RDM
     'hate', -- RDM / WHM
-    'tp', -- RDM / WHM / BRD / SMN
+    'tp','tptoggle', -- RDM / WHM / BRD / SMN
     'yellow', -- BLM / WHM
     'mb','hnm', -- BLM
     'lag',
@@ -183,6 +183,14 @@ local WeakElementTable = {
     ['Thunder'] = 'Earth',
     ['Light'] = 'Dark',
     ['Dark'] = 'Light'
+}
+
+local tpCycleToggleIndex = 2
+
+local tpCycleToggleIndexTable = {
+    ['Off'] = 2, -- Default into toggling into LowAcc
+    ['LowAcc'] = 2,
+    ['HighAcc'] = 3,
 }
 
 local setMP = 0
@@ -271,6 +279,14 @@ function gcmage.DoCommands(args, sets)
         gcinclude.Message('Magic Mode', gcdisplay.GetCycle('Mode'))
     elseif (args[1] == 'tp' and player.MainJob ~= 'BLM') then
         gcdisplay.AdvanceCycle('TP')
+        gcinclude.Message('TP Mode', gcdisplay.GetCycle('TP'))
+        tpCycleToggleIndex = tpCycleToggleIndexTable[gcdisplay.GetCycle('TP')]
+    elseif (args[1] == 'tptoggle' and player.MainJob ~= 'BLM') then
+        if (gcdisplay.GetCycle('TP') == 'Off') then
+            gcdisplay.SetCycleIndex('TP', tpCycleToggleIndex)
+        else
+            gcdisplay.SetCycleIndex('TP', 1)
+        end
         gcinclude.Message('TP Mode', gcdisplay.GetCycle('TP'))
     elseif (args[1] == 'lag') then
         lag =  not lag
