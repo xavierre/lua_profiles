@@ -50,6 +50,7 @@ local sets = {
         Head = 'Dls. Chapeau +1',
         Neck = 'Uggalepih Pendant',
         Ear1 = 'Loquac. Earring',
+		Ear2 = 'Magnetic Earring',
         Body = 'Dualist Tabard',
         Hands = 'Zenith Mitts',
         Ring1 = 'Tamas Ring',
@@ -64,6 +65,7 @@ local sets = {
 		Head = 'Hydra Beret',
         Neck = 'Checkered Scarf',
         Ear1 = 'Relaxing Earring',
+		Ear2 = 'Magnetic Earring',
         Body = 'Errant Hpl.',
 		Hands = 'Hydra Gloves',
 		Legs = 'Hydra Brais',
@@ -229,7 +231,7 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Merman\'s Earring',
-        Ear2 = { Name = 'Merman\'s Earring', Priority = 100 },
+		Ear2 = 'Magnetic Earring',
         Body = { Name = 'Warlock\'s Tabard', Priority = 90 }, -- 10
         --Hands = 'Dst. Mittens +1',
         Ring1 = 'Merman\'s Ring',
@@ -247,7 +249,7 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Merman\'s Earring',
-        Ear2 = { Name = 'Merman\'s Earring', Priority = 100 },
+		Ear2 = 'Magnetic Earring',
         Body = { Name = 'Warlock\'s Tabard', Priority = 90 }, -- 10
         --Hands = 'Dst. Mittens +1',
         Ring1 = 'Merman\'s Ring',
@@ -268,7 +270,7 @@ local sets = {
     },
     ConserveMP = {
         Ammo = 'Dream Sand',
-        -- Ear2 = 'Magnetic Earring',
+        Ear2 = 'Magnetic Earring',
         -- Back = 'Maledictor\'s Shawl',
     },
 
@@ -344,7 +346,7 @@ local sets = {
         Head = 'Hydra Beret', -- 8
         --Neck = 'Benign Necklace', -- 2
         Ear1 = 'Novia Earring', -- 7
-        Ear2 = 'Static Earring',
+		Ear2 = 'Magnetic Earring',
         Body = { Name = 'Hydra Doublet', Priority = 100 }, -- 9
         Hands = 'Hydra Gloves', -- 5
         Ring1 = 'Tamas Ring',
@@ -366,7 +368,7 @@ local sets = {
         Head = { Name = 'Warlock\'s Chapeau', Priority = 100 },
         Neck = 'Enhancing Torque',
         Ear1 = { Name = 'Loquac. Earring', Priority = 100 },
-        Ear2 = { Name = 'Static Earring', Priority = 100 },
+        Ear2 = { Name = 'Magnetic Earring', Priority = 100 },
         -- Body = 'Glamor Jupon',
         Hands = { Name = 'Duelist Gloves', Priority = 100 },
         Ring1 = 'Tamas Ring',
@@ -492,6 +494,7 @@ local sets = {
         -- Head = 'Faerie Hairpin',
         Neck = 'Uggalepih Pendant',
         Ear1 = 'Loquac. Earring',
+		Ear2 = 'Magnetic Earring',
         -- Body = 'Hydra Doublet',
         Hands = 'Zenith Mitts',
         Ring1 = 'Tamas Ring',
@@ -507,6 +510,7 @@ local sets = {
         --Head = 'Faerie Hairpin',
         --Neck = 'Rep.Gold Medal',
         Ear1 = 'Loquac. Earring',
+		Ear2 = 'Magnetic Earring',
         --Body = 'Hydra Doublet',
         Hands = 'Zenith Mitts',
         Ring1 = 'Tamas Ring',

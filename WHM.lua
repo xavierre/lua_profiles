@@ -49,12 +49,15 @@ local sets = {
 		feet = 'Nashira Crackows',        
     },
     IdleALT = {},
-    IdleMaxMP = {},
+    IdleMaxMP = {
+		Ear2 = 'Magnetic Earring',
+    },
     Resting = {
 	    Main = 'Pluto\'s Staff',
 		Head = 'Hydra Beret',
         Neck = 'Checkered Scarf',
         Ear1 = 'Relaxing Earring',
+		Ear2 = 'Magnetic Earring',
         Body = 'Errant Hpl.',
 		Hands = 'Hydra Gloves',
 		Legs = 'Hydra Brais',
@@ -105,12 +108,13 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Loquac. Earring',
-        Body = 'Yinyang Robe',
+		Ear2 = 'Magnetic Earring',
+        Body = 'Errant Hpl.',
         -- Hands = 'Merman\'s Bangles',
         Ring1 = 'Merman\'s Ring',
-        Ring2 = 'Evoker\'s Ring',
-        -- Waist = 'Silver Obi +1', -- 8
-        Legs = { Name = 'Evoker\'s Spats', Priority = 100 },
+        Ring2 = 'Merman\'s Ring',
+        Waist = 'Silver Obi +1', -- 8
+        Legs = { Name = 'Mahatma Slops', Priority = 100 },
         -- Feet = { Name = 'Mountain Gaiters', Priority = 100 }, -- 5    
     },
     SIRD = { -- Used on Stoneskin, Blink, Aquaveil and Utsusemi casts regardless of Override set. If you wish to remain in FireRes etc. during casts, leave empty.
@@ -120,14 +124,15 @@ local sets = {
         Head = 'Nashira Turban', -- 10
         Neck = 'Willpower Torque', -- 5
         Ear1 = 'Loquac. Earring',
-        Body = 'Yinyang Robe',
+		Ear2 = 'Magnetic Earring',
+        Body = 'Errant Hpl.',
         -- Hands = 'Merman\'s Bangles',
         Ring1 = 'Merman\'s Ring',
-        Ring2 = 'Evoker\'s Ring',
-        -- Waist = 'Silver Obi +1', -- 8
-        Legs = { Name = 'Evoker\'s Spats', Priority = 100 },
-        -- Feet = { Name = 'Mountain Gaiters', Priority = 100 }, -- 5    
-    },
+        Ring2 = 'Merman\'s Ring',
+        Waist = 'Silver Obi +1', -- 8
+        Legs = { Name = 'Mahatma Slops', Priority = 100 },
+        -- Feet = { Name = 'Mountain Gaiters', Priority = 100 }, -- 5
+   },
     Haste = { -- Used only on Haste, Refresh, Blink and Utsusemi casts
 		Head = 'Nashira Turban', --	2
         Ear1 = 'Loquac. Earring', -- 1
@@ -139,6 +144,7 @@ local sets = {
 },
     ConserveMP = {
         Ammo = 'Dream Sand',
+		Ear2 = 'Magnetic Earring',
     },
 
     Hate = { -- Switches to this set when casting Sleep, Blind, Dispel, Bind, Flash and Cures on other players if /hate is toggled on
@@ -152,11 +158,13 @@ local sets = {
 		Head = 'Hlr. cap +1',
         Neck = 'Ajari bead necklace',
 		Body = 'Noble\'s tunic', 
-		Back = 'Prism cape',
-		Waist = 'Cleric\'s belt',
+        Ear1 = 'Novia Earring',
+		Ear2 = 'Magnetic Earring',
 		Hands = 'Blessed mitts',
 		Ring1 = 'Tamas ring',
 		Ring2 = 'Thunder ring',
+		Back = 'Prism cape',
+		Waist = 'Cleric\'s belt',
 		Legs = 'Mahatma slops', 
 		Feet = 'Mahatma Pigaches',        
     },
@@ -192,7 +200,7 @@ local sets = {
         -- Ammo = 'Hedgehog Bomb',
         Neck = 'Enhancing Torque',
         Ear1 = 'Loquac. Earring',
-        Ear2 = 'Static Earring',
+        Ear2 = 'Magnetic Earring',
         Body = 'Errant Hpl.',
         Ring1 = 'Tamas Ring',
 		Feet = 'Cleric\'s duckbills',
@@ -234,7 +242,6 @@ local sets = {
     },
     EnfeeblingINT = {
         Ear1 = 'Cunning Earring',
-        Ear2 = 'Static Earring',
         Ring1 = 'Tamas Ring',
         Ring2 = 'Snow Ring',
         Feet = 'Rostrum Pumps',
