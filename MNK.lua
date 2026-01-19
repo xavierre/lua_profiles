@@ -12,7 +12,7 @@ local temple_gloves = {
     Hands = 'Temple Gloves',
 }
 local temple_cyclas = {
-    Body = 'Temple Cyclas',
+    Body = 'Temple Cyclas +1',
 }
 local temple_crown = {
     Head = 'Tpl. Crown +1',
@@ -228,7 +228,7 @@ local sets = {
         -- Neck = 'Fortitude Torque',
         -- Ear1 = 'Robust Earring',
         -- Ear2 = 'Robust Earring',
-        Body = 'Temple Cyclas',
+        Body = 'Temple Cyclas +1',
         -- Ring1 = 'Soil Ring',
         -- Ring2 = 'Soil Ring',
         Back = 'Melee Cape',
