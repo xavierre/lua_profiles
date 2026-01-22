@@ -38,7 +38,7 @@ local sets = {
     WaterRes = {},
     Evasion = {
 		Head = 'Optical Hat',
---		Neck = 'Evasion torque',
+		Neck = 'Evasion torque',
 		Body = 'Scp. Harness +1',
 		Hands = 'War gloves +1',
 		Waist = 'Scouter\'s Rope',
@@ -47,7 +47,10 @@ local sets = {
 		Ear2 = 'Novia earring',
 		Back = 'Boxer\'s mantle',        
     },
-
+Movement_TP = {
+        Feet = 'Trotter Boots',
+    },
+    
     Precast = {
         Ear1 = 'Loquac. Earring',
         Legs = 'Homam Cosciales',
