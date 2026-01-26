@@ -185,7 +185,9 @@ local sets = {
         Body = 'Cleric\'s Bliaut',
     },
     Barspell = {
-		Body = 'Blessed Briault',        
+		-- Body = 'Blessed Briault',  100K gil
+        Legs = 'Cleric\'s Pantaln.', -- +1 give +22
+           
     },
     Cursna = {
 		-- Neck = 'Healing Torque',
