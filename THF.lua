@@ -10,7 +10,17 @@ local evasion_master_casters_mitts = {
 }
 
 local sets = {
-    Idle = {},
+    Idle = {
+	    Head = 'Dream Ribbon',
+        Neck = 'Love Torque',
+		Ear1 = 'Stealth earring',        
+        Body = 'Rapparee Harness',
+        Hands = 'Assassin\'s Armlets',
+        Waist = 'Swift Belt',
+        Legs = 'Homam Cosciales',
+        Feet = 'Trotter Boots',
+		Back = 'Boxer\'s mantle',        
+    },
     IdleALT = {},
     Resting = {},
     Town = {
@@ -526,8 +536,7 @@ profile.WatchTreasureHunter = function()
             local packet = actionpacket:parse(e);
             if (packet.UserId == playerEntity.ServerId) then
                 if (type:contains(packet.Type)) then
-                    local reaction = T { 0, 8, 
-                        9, -- melee/range attack missed, comment out for pedantic TH mode
+                    local reaction = T { 0, 8, 9, -- melee/range attack missed, comment out for pedantic TH mode
                     }
                     for _, target in ipairs(packet.Targets) do
                         for i = 1, #target.Actions do

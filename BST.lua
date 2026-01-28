@@ -10,7 +10,9 @@ local gaudy_harness = {
 }
 
 local sets = {
-    Idle = {},
+    Idle = {
+        Head = 'Dream Ribbon',        
+    },
     IdleALT = {},
     Resting = {},
     Town = {},

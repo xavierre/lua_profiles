@@ -72,9 +72,11 @@ local sets = {
 		Feet = 'Hydra gaiters',
         Waist = 'Duelist\'s Belt',
     },
-    Town = {},
+    Town = {
+        Head = 'Dream Ribbon',
+    },
     Movement = {
-        Head = 'Dls. Chapeau +1',
+        Head = 'Dream Ribbon',
         Legs = 'Crimson Cuisses',
     },
 

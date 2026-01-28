@@ -22,7 +22,7 @@ local fenrirs_stone = { -- Used for hp at day for maxhp cheat
 local sets = {
     Idle = {
         Ammo = 'Fenrir\'s Stone',
-        Head = 'Ace\'s helm',
+        Head = 'Dream Ribbon',
         Neck = 'Love Torque',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Cassie Earring',
@@ -99,7 +99,6 @@ local sets = {
         Waist = 'Swift Belt',
         Legs = 'Homam Cosciales',
         Feet = 'Homam Gambieras',
-
     },
     TP_Aftermath = {},
     TP_Mjollnir_Haste = {},
@@ -151,7 +150,9 @@ local sets = {
     Stoneskin = {
         Neck = 'Enhancing torque',
     },
-
+    Movement_TP = {
+        Legs = 'Crimson Cuisses',
+    },
     ['Ancient Circle'] = {
         Legs = 'Drn. Brais +1',
     },
@@ -349,6 +350,7 @@ profile.HandleDefault = function()
     local isRDM = player.SubJob == 'RDM'
     local isMage = isWHM or isRDM
     local weakened = gData.GetBuffCount('Weakness')
+    local environment = gData.GetEnvironment()
 
     if (isWHM and player.HP <= heal_hp_threshold_whm and weakened < 1) then
         gFunc.EquipSet(sets.DT)
@@ -391,6 +393,7 @@ profile.HandleMidcast = function()
 
     local player = gData.GetPlayer()
     local action = gData.GetAction()
+    local environment = gData.GetEnvironment()
     if (player.SubJob == 'WHM' or player.SubJob == 'RDM') then
         if (action.Name == 'Stoneskin') then
             gFunc.EquipSet(sets.Stoneskin)
