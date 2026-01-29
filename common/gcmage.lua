@@ -13,13 +13,13 @@ local claustrum = {
 }
 
 local fire_staff = {
-    Main = 'Vulcan\'s Staff',
+    Main = 'Fire Staff',
 }
 local earth_staff = {
     Main = 'Terra\'s Staff',
 }
 local water_staff = {
-    Main = 'Neptune\'s Staff',
+    Main = 'Water Staff',
 }
 local wind_staff = {
     Main = 'Auster\'s Staff',
@@ -31,14 +31,14 @@ local thunder_staff = {
     Main = 'Jupiter\'s Staff',
 }
 local light_staff = {
-    Main = 'Apollo\'s Staff',
+    Main = 'Light Staff',
 }
 local dark_staff = {
     Main = 'Pluto\'s Staff',
 }
 
 local karin_obi = {
-    Waist = 'Karin Obi',
+    -- Waist = 'Karin Obi',
 }
 local dorin_obi = {
     -- Waist = 'Dorin Obi',
@@ -56,7 +56,7 @@ local rairin_obi = {
     Waist = 'Rairin Obi',
 }
 local korin_obi = {
-    Waist = 'Korin Obi',
+    -- Waist = 'Korin Obi',
 }
 local anrin_obi = {
     Waist = 'Anrin obi',
@@ -69,19 +69,19 @@ local master_casters_bracelets = {
     Hands = 'Mst.Cst. Bracelets',
 }
 local wizards_mantle = {
-    -- Back = 'Wizard\'s Mantle',
+    Back = 'Wizard\'s Mantle',
 }
 local republic_gold_medal = { -- Note: Disabled for BRD
-    Neck = 'Rep.Gold Medal',
+    -- Neck = 'Rep.Gold Medal',
 }
 local diabolos_earring = { -- Forces usage of this for NukeACC, EnfeebleACC, and Dark Magic
-    -- Ear2 = 'Diabolos\'s Earring',
+    Ear2 = 'Diabolos\'s Earring',
 }
 local diabolos_ring = {
     Ring2 = 'Diabolos\'s Ring',
 }
 local ice_ring = {
-    -- Ring2 = 'Ice Ring',
+    Ring2 = 'Ice Ring',
 }
 local water_ring = {
     -- Ring2 = 'Water Ring',
@@ -95,12 +95,11 @@ local tp_fenrirs_earring = {
     -- Ear2 = 'Fenrir\'s Earring',
 }
 local tp_diabolos_earring = {
-    -- Ear2 = 'Diabolos\'s Earring',
+    Ear2 = 'Diabolos\'s Earring',
 }
 
 -- Set this to true to confirm that actually read the README.md and set up the equipment listed above correctly
-local i_can_read_and_follow_instructions_test = false
-
+local i_can_read_and_follow_instructions_test = true
 --[[
 --------------------------------
 Everything below can be ignored.
