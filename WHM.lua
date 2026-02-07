@@ -224,7 +224,7 @@ local sets = {
     Spikes = {},
 
     Enfeebling = {
-		Body = 'Healer\'s Bliaut',
+        Body = 'Hlr. Bliaut +1',
 		Neck = 'Enfeebling Torque',
 		Hands = 'Cleric\'s Mitts',
 		Legs = 'Nashira Seraweels',
@@ -250,7 +250,7 @@ local sets = {
 
     },
     EnfeeblingACC = {
-        Body = 'Nashira Manteel',
+        Body = 'Hlr. Bliaut +1',
         Legs = 'Nashira Seraweels',
     },
 
