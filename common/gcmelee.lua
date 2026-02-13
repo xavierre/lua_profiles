@@ -283,8 +283,17 @@ function gcmelee.SetupInterimEquipSet(sets)
 
     if (SurvivalSpells:contains(action.Name)) then
         gFunc.InterimEquipSet(sets.SIRD)
+    else
+        local ignoreTP = {
+            Main = 'ignore',
+            Sub = 'ignore',
+            Range = 'ignore',
+            Ammo = 'ignore',
+        }
+        local dtTP = gFunc.Combine(sets.DT, ignoreTP)
     end
 
+    if (gcdisplay.IdleSet == 'DT') then gFunc.InterimEquipSet(sets.DT) end
     if (gcdisplay.IdleSet == 'MDT') then gFunc.InterimEquipSet(sets.MDT) end
     if (gcdisplay.IdleSet == 'FireRes') then gFunc.InterimEquipSet(sets.FireRes) end
     if (gcdisplay.IdleSet == 'IceRes') then gFunc.InterimEquipSet(sets.IceRes) end

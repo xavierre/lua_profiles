@@ -397,14 +397,14 @@ local sets = {
         Neck = 'Prudence Torque',
         Ear1 = 'Novio Earring',
         Ear2 = 'Novia Earring', -- 7
-        Body = 'Errant Hpl.', -- 4
-        Hands = 'Wzd. Gloves +1', -- 2
+        Body = 'Errant Hpl.', -- 3
+        Hands = 'Wizard\'s Gloves', -- 1
         Ring1 = 'Tamas Ring',
         Ring2 = 'Snow Ring',
         -- Back = 'Mahatma Cape', -- 5
         -- Waist = 'Penitent\'s Rope', -- 3
         Legs = 'Mahatma Slops', -- 4
-        Feet = 'Src. Sabots +1', -- 3
+        Feet = 'Src. Sabots +1', -- 2
     },
     NukeACC = {
         Head = 'Src. Petasos +1',
@@ -421,7 +421,7 @@ local sets = {
         Ear1 = 'Abyssal Earring',
         -- Ear2 = 'Omn. Earring',
         Body = 'Errant Hpl.',
-        Hands = 'Wzd. Gloves +1',
+        Hands = 'Wizard\'s Gloves', -- 1
         Ring1 = 'Tamas Ring',
         Ring2 = 'Snow Ring',
         Back = 'Prism Cape',
@@ -447,11 +447,12 @@ local sets = {
     MB = {
         Ammo = 'Dream Sand',
         Hands = 'Src. Gloves +1',
-        Ear2 = 'Static earring',
         -- Back = 'Maledictor\'s Shawl',
     },
     MBHNM = {
-        Hands = 'Wzd. Gloves +1',
+        Ammo = 'Dream Sand',
+        Hands = 'Wizard\'s Gloves', -- 1
+        Ear2 = 'Novia Earring', -- 7
         -- Back = 'Mahatma Cape',
     },
 

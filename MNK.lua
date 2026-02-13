@@ -236,7 +236,7 @@ local sets = {
         Back = 'Melee Cape',
         Waist = 'Warwolf Belt',
         -- Legs = 'Mst. Sitabaki +1',
-        -- Feet = 'Power sandals',
+        Feet = 'Creek F Clomps',
     },
 
     ChiBlast = { -- MND based
