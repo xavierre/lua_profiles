@@ -96,6 +96,12 @@ local sets = {
     WindRes = {},
     WaterRes = {},
     Evasion = {},
+    Helm = {
+        body = 'Field tunica',
+        hands = 'Field gloves',
+        legs = 'Field hose',
+        feet = 'Field boots',
+    },
 
     Precast = {
         Ear1 = 'Loquac. Earring', -- 2

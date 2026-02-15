@@ -57,7 +57,13 @@ local sets = {
 		Ear2 = 'Novia earring',
 		Back = 'Boxer\'s mantle',        
     },
-Movement_TP = {
+    Helm = {
+        Body = 'Field tunica',
+        Hands = 'Field gloves',
+        Legs = 'Field hose',
+        Feet = 'Field boots',
+    },
+    Movement_TP = {
         Feet = 'Trotter Boots',
     },
     

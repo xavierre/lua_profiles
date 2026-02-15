@@ -43,13 +43,13 @@ local LockableEquipment = {
     ['Ear1'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
     ['Ear2'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
     ['Body'] = T{'Custom Gilet +1', 'Custom Top +1', 'Magna Gilet +1', 'Magna Top +1', 'Savage Top +1', 'Elder Gilet +1', 'Wonder Maillot +1', 'Wonder Top +1', 'Mandra. Suit', 'Field Tunica'},
-    ['Hands'] = T{'Field Gloves'},
+    ['Hands'] = T{'Dream Mittens +1'},
     ['Ring1'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
     ['Ring2'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
     ['Back'] = T{},
     ['Waist'] = T{},
-    ['Legs'] = T{'Field hose'},
-    ['Feet'] = T{'Powder Boots', 'Field boots'},
+    ['Legs'] = T{},
+    ['Feet'] = T{'Powder Boots', 'Dream Boots +1'},
 }
 
 --[[
@@ -65,7 +65,7 @@ local gcinclude = {}
 
 gcinclude.horizon_safe_mode = horizon_safe_mode
 
-local Overrides = T{ 'idle','dt','pdt','mdt','fireres','fres','iceres','ires','bres','lightningres','lres','tres','earthres','eres','sres','windres','wires','ares','waterres','wares','wres','evasion','eva' }
+local Overrides = T{ 'idle','dt','pdt','mdt','fireres','fres','iceres','ires','bres','lightningres','lres','tres','earthres','eres','sres','windres','wires','ares','waterres','wares','wres','evasion','eva', 'helm' }
 local Commands = T{ 'kite','lock','lockset','warpme','horizonmode' }
 
 local Towns = T{
@@ -107,7 +107,8 @@ local OverrideNameTable = {
     ['wres'] = 'WaterRes',
     ['wares'] = 'WaterRes',
     ['evasion'] = 'Evasion',
-    ['eva'] = 'Evasion'
+    ['eva'] = 'Evasion',
+    ['helm'] = 'Helm'
 }
 
 local isMageJobs = T{ 'RDM','BLM','WHM','SMN','BRD' }
@@ -257,12 +258,14 @@ function gcinclude.DoDefaultOverride(isMelee)
         end
     end
     if (gcdisplay.IdleSet == 'Evasion') then gFunc.EquipSet('Evasion') end
+    if (gcdisplay.IdleSet == 'Helm') then gFunc.EquipSet('helm') end
 
     if (player.IsMoving == true) then
         if (gcdisplay.IdleSet == 'Normal'
             or gcdisplay.IdleSet == 'Alternate'
             or gcdisplay.IdleSet == 'DT'
             or gcdisplay.IdleSet == 'Evasion'
+            or gcdisplay.IdleSet == 'Helm'
         ) then
             gFunc.EquipSet('Movement')
         end
