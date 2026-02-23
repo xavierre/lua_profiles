@@ -320,7 +320,7 @@ local sets = {
 		Ear2 = 'Magnetic Earring',
         Back = 'Astute Cape',
         Body = 'Smn. Doublet +1',
-        Hands = 'Smn. Bracers +1',
+        Hands = 'Summoner\'s Brcr.',
         Feet = 'Nashira Crackows',
         -- Ammo = 'Hedgehog Bomb',
         Waist = { Name = 'Hierarch Belt', Priority = 100 },
