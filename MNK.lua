@@ -203,6 +203,12 @@ local sets = {
         Ring2 = 'Toreador\'s Ring',
     },
 
+    WS_RagingFists = {
+        Neck = 'Faith Torque',
+        Body = 'Kirin\'s Osode',
+        Hands = 'Mel. Gloves +1',
+    },
+
     WS_AsuranFists = {
         Neck = 'Faith Torque',
         Ear1 = 'Merman\'s Earring',
@@ -212,7 +218,8 @@ local sets = {
         Legs = 'Byakko\'s Haidate',
     },
     WS_HowlingFist = {
-        Head = 'Genbu\'s Kabuto',        
+        Head = 'Genbu\'s Kabuto',    
+        waist = 'Warwolf Belt',    
     },
 
     Jump = {
@@ -351,6 +358,8 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.WS_DragonKick)
     elseif (action.Name == 'Howling Fist') then
         gFunc.EquipSet(sets.WS_HowlingFist)
+    elseif (action.Name == 'Raging Fists') then
+        gFunc.EquipSet(sets.WS_RagingFists) 
     end
 end
 
