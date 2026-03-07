@@ -189,7 +189,7 @@ local sets = {
 
     WS_Evisceration = {
 		Feet = { Name = 'Asn. Poulaines +1', Priority = 1 },
-    },
+    }, 
     WS_DancingEdge = {
 		Feet = { Name = 'Asn. Poulaines +1', Priority = 1 },
     },
@@ -257,6 +257,8 @@ local sets = {
 		Neck = 'Nanaa\'s Charm',        
     },
 
+    Preshot = {}, -- This set is pointless until ToAU+ when Snapshot on equipment is available
+
     Ranged = {
 		Head = 'Optical hat',
         Neck = 'Peacock amulet',
@@ -291,6 +293,10 @@ local sets = {
     },
     Venom = {
         Ammo = 'Venom Bolt',
+    },
+    None = {
+        Range = 'displaced',
+        Ammo = 'Bomb Core',
     },
 
     Weapon_Loadout_1 = {},

@@ -47,13 +47,13 @@ local sets = {
     },
 
     DT = {
-        Head = 'Black Ribbon', -- green ribbon +1 (14K gil)
-        Neck = 'Jeweled Collar',
-        Ear1 = 'Merman\'s Earring', -- 2
-        Ear2 = 'Merman\'s Earring', -- 2
+--        Head = 'Black Ribbon', -- green ribbon +1 (14K gil)
+--        Neck = 'Jeweled Collar',
+--        Ear1 = 'Merman\'s Earring', -- 2
+--        Ear2 = 'Merman\'s Earring', -- 2
         -- Hands = 'Merman\'s Bangles', -- 3
-        Ring1 = 'Merman\'s Ring', -- 4 -- Using this over Shadow Ring for consistency
-        Ring2 = 'Merman\'s Ring', -- 4 -- Using this over Shadow Ring for consistency
+--        Ring1 = 'Merman\'s Ring', -- 4 -- Using this over Shadow Ring for consistency
+--        Ring2 = 'Merman\'s Ring', -- 4 -- Using this over Shadow Ring for consistency
         -- Back = { Name = 'Hexerei Cape', Priority = 100 }, -- 3
     },
     MDT = {},
