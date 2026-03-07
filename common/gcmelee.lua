@@ -1,3 +1,10 @@
+-- The period of time prior to midcast (spell) completion upon which equipment will swap. 
+-- 400 milliseconds is provided as a default conservative value which is typically sufficient worldwide but this value can be increased if your internet is completely and consistently shit.
+local minimumBuffer = 0.4
+
+-- Change this value to 0.4 if you do not use PacketFlow
+local packetDelay = 0.25
+
 -- Comment out the equipment within these sets if you do not have them or do not wish to use them
 local fenrirs_earring = { -- Not used for RNG at all
     Ear2 = 'Fenrir\'s Earring',
