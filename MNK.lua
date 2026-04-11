@@ -277,10 +277,10 @@ local sets = {
     },
 
     Weapon_Loadout_1 = {
-        Main = 'Destroyers',
+        Main = 'Destoyers',
     },
     Weapon_Loadout_2 = {
-        Main = 'Cross-Counters',
+        Main = 'Caestus',
     },
     Weapon_Loadout_3 = {
         Main = 'Faith Baghnakhs',
