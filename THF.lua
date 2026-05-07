@@ -88,6 +88,8 @@ local sets = {
     LockSet2 = {},
     LockSet3 = {},
 
+    TP_Mjollnir_Haste = {},
+
     TP_LowAcc = {
         Head = 'Homam zucchetto',
         Body = 'Rapparee Harness',
