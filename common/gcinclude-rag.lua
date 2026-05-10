@@ -1,8 +1,12 @@
-local horizon_safe_mode = true -- this disables some of the potentially more contentious automation to ensure LAC is not breaking Horizon server rules
+local horizon_safe_mode = false -- this disables some of the potentially more contentious automation to ensure LAC is not breaking Horizon server rules
 
 local display_messages = true -- set to true if you want chat log messages to appear on any /gc command used such as DT, or KITE gear toggles
 
 local load_stylist = true -- set to true to just load stylist on game start. this is purely for convenience since putting it in scripts doesn't work
+
+-- The following 2 settings force your character model to blink on every spell cast or ability usage for the purposes of animation cancelling.
+local setStylistToBlinkSelf = true -- Forces blinks on visible equipment changes.
+local toggleDisplayHeadOnAbility = true -- Forces blinks on JA usage.
 
 local toggleDisplayHeadOnAbility = false
 
@@ -32,24 +36,24 @@ local skulkers_cape = {
 -- Set this to true to confirm that actually read the README.md and set up the equipment listed above correctly
 local i_can_read_and_follow_instructions_test = true
 
--- Add additional equipment here that you want to automatically lock when equipping
+-- Add additional equipment here that you want to automatically lock when equipping. Ignore's Maat's Cap, Dream Mittens +1, Dream Boots +1 as these will stick on idle.
 local LockableEquipment = {
     ['Main'] = T{'Warp Cudgel', 'Rep. Signet Staff', 'Kgd. Signet Staff', 'Fed. Signet Staff', 'Treat Staff II', 'Trick Staff II'},
     ['Sub'] = T{'Warp Cudgel'},
     ['Range'] = T{},
     ['Ammo'] = T{},
-    ['Head'] = T{'Reraise Hairpin', 'Dream Hat +1', 'Tinfoil Hat'},
-    ['Neck'] = T{'Opo-opo Necklace'},
+    ['Head'] = T{'Reraise Hairpin', 'Blink Band', 'Dream Hat +1', 'Tinfoil Hat'},
+    ['Neck'] = T{'Opo-opo Necklace', 'Reraise Gorget'},
     ['Ear1'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
     ['Ear2'] = T{'Reraise Earring', 'Republic Earring', 'Kingdom Earring', 'Federation Earring'},
-    ['Body'] = T{'Custom Gilet +1', 'Custom Top +1', 'Magna Gilet +1', 'Magna Top +1', 'Savage Top +1', 'Elder Gilet +1', 'Wonder Maillot +1', 'Wonder Top +1', 'Mandra. Suit',},
-    ['Hands'] = T{'Dream Mittens +1'},
-    ['Ring1'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
-    ['Ring2'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring'},
+    ['Body'] = T{'Custom Gilet +1', 'Custom Top +1', 'Magna Gilet +1', 'Magna Top +1', 'Savage Top +1', 'Elder Gilet +1', 'Wonder Maillot +1', 'Wonder Top +1', 'Mandra. Suit', 'Lord\'s Yukata'},
+    ['Hands'] = T{},
+    ['Ring1'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Return Ring', 'Warp Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring', 'Albatross Ring'},
+    ['Ring2'] = T{'Anniversary Ring', 'Emperor Band', 'Chariot Band', 'Empress Band', 'Homing Ring', 'Return Ring', 'Warp Ring', 'Tavnazian Ring', 'Dem Ring', 'Holla Ring', 'Mea Ring', 'Altep Ring', 'Yhoat Ring', 'Albatross Ring'},
     ['Back'] = T{},
     ['Waist'] = T{},
     ['Legs'] = T{},
-    ['Feet'] = T{'Powder Boots', 'Dream Boots +1'},
+    ['Feet'] = T{'Powder Boots'}
 }
 
 --[[
@@ -65,8 +69,8 @@ local gcinclude = {}
 
 gcinclude.horizon_safe_mode = horizon_safe_mode
 
-local Overrides = T{ 'idle','dt','pdt','mdt','fireres','fres','iceres','ires','bres','lightningres','lres','tres','earthres','eres','sres','windres','wires','ares','waterres','wares','wres','evasion','eva', 'helm' }
-local Commands = T{ 'kite','lock','lockset','warpme','horizonmode' }
+local Overrides = T{ 'idle','dt','pdt','mdt','fireres','fres','iceres','ires','bres','lightningres','lres','tres','earthres','eres','sres','windres','wires','ares','waterres','wares','wres','evasion','eva','override','or' }
+local Commands = T{ 'kite','lock','lockset','horizonmode' }
 
 local Towns = T{
     'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau',
@@ -108,7 +112,8 @@ local OverrideNameTable = {
     ['wares'] = 'WaterRes',
     ['evasion'] = 'Evasion',
     ['eva'] = 'Evasion',
-    ['helm'] = 'Helm'
+    ['or'] = 'Override',
+    ['override'] = 'Override'
 }
 
 local isMageJobs = T{ 'RDM','BLM','WHM','SMN','BRD' }
@@ -134,6 +139,9 @@ function gcinclude.RetryLoad()
         if (load_stylist) then
             AshitaCore:GetChatManager():QueueCommand(-1, '/load Stylist')
             AshitaCore:GetChatManager():QueueCommand(-1, '/stylist load default')
+            if (setStylistToBlinkSelf) then
+                AshitaCore:GetChatManager():QueueCommand(-1, '/stylist self off')
+            end
         end
     else
         gcinclude.RetryLoad:once(1)
@@ -174,8 +182,6 @@ function gcinclude.DoCommands(args)
     elseif (args[1] == 'kite') then
         gcdisplay.AdvanceToggle('Kite')
         gcinclude.Message('Kite', gcdisplay.GetToggle('Kite'))
-    elseif (args[1] == 'warpme') then
-        gcinclude.RunWarpCudgel()
     elseif (args[1] == 'lockset') then
         if (tonumber(args[2]) ~= nil) then
             AshitaCore:GetChatManager():QueueCommand(-1, '/lac set LockSet' .. args[2])
@@ -218,14 +224,6 @@ function gcinclude.ToggleIdleSet(idleSet)
     end
 end
 
-function gcinclude.RunWarpCudgel()
-    AshitaCore:GetChatManager():QueueCommand(-1, '/equip main "Warp Cudgel"')
-    local function usecudgel()
-        AshitaCore:GetChatManager():QueueCommand(-1, '/item "Warp Cudgel" <me>')
-    end
-    usecudgel:once(31)
-end
-
 function gcinclude.DoDefaultIdle()
     gFunc.EquipSet('Idle')
     if (gcdisplay.IdleSet == 'Alternate') then gFunc.EquipSet('IdleALT') end
@@ -258,14 +256,14 @@ function gcinclude.DoDefaultOverride(isMelee)
         end
     end
     if (gcdisplay.IdleSet == 'Evasion') then gFunc.EquipSet('Evasion') end
-    if (gcdisplay.IdleSet == 'Helm') then gFunc.EquipSet('helm') end
+    if (gcdisplay.IdleSet == 'Override') then gFunc.EquipSet('Override') end
 
     if (player.IsMoving == true) then
         if (gcdisplay.IdleSet == 'Normal'
             or gcdisplay.IdleSet == 'Alternate'
             or gcdisplay.IdleSet == 'DT'
             or gcdisplay.IdleSet == 'Evasion'
-            or gcdisplay.IdleSet == 'Helm'
+            or gcdisplay.IdleSet == 'Override'
         ) then
             gFunc.EquipSet('Movement')
         end
@@ -311,6 +309,8 @@ function gcinclude.DoItem()
     elseif (item.Name == 'Prism Powder') then
         gFunc.EquipSet('dream_mittens')
         gFunc.EquipSet('skulkers_cape')
+	elseif (item.Name:startswith("Vile Elixir")) then
+		gFunc.EquipSet('VileElixir')
     end
 end
 
@@ -320,11 +320,25 @@ function gcinclude.DoAbility()
     end
 end
 
+local timePointer = ashita.memory.find('FFXiMain.dll', 0, '8B0D????????8B410C8B49108D04808D04808D04808D04C1C3', 2, 0)
+function gcinclude.GetTimeUTC()
+	local ptr = ashita.memory.read_uint32(timePointer)
+	ptr = ashita.memory.read_uint32(ptr)
+	return ashita.memory.read_uint32(ptr + 0x0C)
+end
+
+local vanaOffset = 0x3C307D70
+function gcinclude.ItemEnchantmentIsReady(item)
+	local currentTime = gcinclude.GetTimeUTC()
+	local useTimeRemaining = (struct.unpack('L', item.Item.Extra, 5) + vanaOffset) - currentTime
+	return useTimeRemaining <= 0
+end
+
 function gcinclude.BuildLockableSet(equipment)
     local lockableSet = {}
 
     for slot, item in pairs(equipment) do
-        if (LockableEquipment[slot]:contains(item.Name)) then
+        if (LockableEquipment[slot]:contains(item.Name) and gcinclude.ItemEnchantmentIsReady(item)) then
             lockableSet[slot] = item
             if (
                 item.Name == 'Custom Gilet +1'

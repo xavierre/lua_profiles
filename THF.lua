@@ -6,9 +6,14 @@ local snapShotValue = 0.00 -- 0% from gear listed in Preshot set
 local max_hp_in_idle_with_regen_gear_equipped = 0 -- You could set this to 0 if you do not wish to ever use regen gear
 
 -- Comment out the equipment within these sets if you do not have them or do not wish to use them
+local windRingMaxHP = 0
+local wind_ring = {
+    -- Ring2 = 'Wind Ring',
+}
 local evasion_master_casters_mitts = {
     Hands = 'Mst.Cst. Mitts',
 }
+
 
 local sets = {
     Idle = {
@@ -58,11 +63,11 @@ local sets = {
 		Ear2 = 'Novia earring',
 		Back = 'Boxer\'s mantle',        
     },
-    Helm = {
-        Body = 'Field tunica',
-        Hands = 'Field gloves',
-        Legs = 'Field hose',
-        Feet = 'Field boots',
+    Override = { -- An additional override set explicitly to be used for sets such as crafting, HELM, fishing, or any other special sets such as DRK 2HR, MNK Counter etc. n.b. Any unused Resist or Evasion set can be used similarly.
+        Body = 'Field Tunica',
+        Hands = 'Field Gloves',
+        Legs = 'Field Hose',
+        Feet = 'Field Boots'
     },
     Movement_TP = {
         Feet = 'Trotter Boots',
@@ -88,8 +93,6 @@ local sets = {
     LockSet2 = {},
     LockSet3 = {},
 
-    TP_Mjollnir_Haste = {},
-
     TP_LowAcc = {
         Head = 'Homam zucchetto',
         Body = 'Rapparee Harness',
@@ -104,34 +107,22 @@ local sets = {
         Feet = 'Homam Gambieras',
 		Back = 'Forager\'s mantle',         
     },
-    TP_HighAcc = {
-        Head = 'Optical Hat',
-		Body = 'Homam Corazza',
-        Neck = 'Peacock amulet',
-        Ear1 = 'Brutal earring',
-		Ear2 = 'Stealth earring',
-        Ring1 = 'Toreador\'s Ring',
-        Ring2 = 'Toreador\'s Ring',
-        Hands = 'Homam manopolas',
-        Waist = 'Swift belt',
-        Legs = 'Homam Cosciales',
-        Feet = 'Homam Gambieras',
-		Back = 'Forager\'s mantle',         
+       TP_Mjollnir_Haste = {
+        -- Head = 'Maat\'s Cap',
     },
+    
+    TP_HighAcc = {
+        Body = { Name = 'Homam Corazza', Priority = 30 },
+        Neck = 'Peacock amulet',
+        Ring1 = { Name = 'Toreador\'s Ring', Priority = 20 },
+        Ring2 = { Name = 'Toreador\'s Ring', Priority = 20 },
+        Feet = { Name = 'Homam Gambieras', Priority = 30 }
+    },
+    
     TP_NIN = {
-        Head = 'Homam zucchetto',
-        Body = 'Rapparee Harness',
-        Neck = 'Love Torque',
-        Ear1 = 'Brutal earring',
-		Ear2 = 'Stealth earring',
-        Ring1 = 'Toreador\'s Ring',
-        Ring2 = 'Toreador\'s Ring',
-        Hands = 'Homam manopolas',
-        Waist = 'Swift belt',
-        Legs = 'Homam Cosciales',
-        Feet = 'Homam Gambieras',
-		Back = 'Forager\'s mantle',         },
-
+        Ear2 = 'Stealth Earring',
+    },
+    
     -- Note that these sets are for naked SA/TA/SATAs without WS --
     SA = {
         Head = 'Hecatomb Cap',
@@ -304,6 +295,8 @@ local sets = {
     Weapon_Loadout_1 = {},
     Weapon_Loadout_2 = {},
     Weapon_Loadout_3 = {},
+
+    VileElixir = {},
 }
 
 profile.SetMacroBook = function()
@@ -558,17 +551,17 @@ profile.WatchTreasureHunter = function()
         end
 
         if (e.id == 0x28) then
-            local type = { 
+            local type = {
                 [1] = true, -- Attack
                 [2] = true, -- Ranged Attack
-                [3] = true, -- Ability 
-                [4] = true, 
+                [3] = true, -- Ability
+                [4] = true,
                 [6] = true -- Also ability? (Provoke)
             };
             local packet = actionpacket:parse(e);
             if (packet.UserId == playerEntity.ServerId) then
                 if (type[packet.Type]) then
-                    local reaction = { 
+                    local reaction = {
                         [0] = true, -- Spell Hit / ???
                         [8] = true, -- Attack Hit/Miss
                         [9] = true, -- Legacy
