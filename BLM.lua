@@ -435,7 +435,7 @@ local sets = {
         -- Back = 'Mahatma Cape',
     },
 
-    VileElixir = {}.
+    VileElixir = {},
 
     LockSet1 = {},
     LockSet2 = {},

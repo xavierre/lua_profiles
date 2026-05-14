@@ -311,9 +311,11 @@ profile.HandleItem = function()
 end
 
 profile.HandlePreshot = function()
+    gcmelee.DoPreshot(sets.Preshot, gFunc.Combine(sets.Preshot, sets.Ranged), snapShotValue)
 end
 
 profile.HandleMidshot = function()
+    gcmelee.DoMidshot(sets, gFunc.Combine(sets.Preshot, sets.Ranged))
 end
 
 profile.HandleWeaponskill = function()
@@ -350,7 +352,6 @@ profile.HandleDefault = function()
     local isRDM = player.SubJob == 'RDM'
     local isMage = isWHM or isRDM
     local weakened = gData.GetBuffCount('Weakness')
-    local environment = gData.GetEnvironment()
 
     if (isWHM and player.HP <= heal_hp_threshold_whm and weakened < 1) then
         gFunc.EquipSet(sets.DT)
