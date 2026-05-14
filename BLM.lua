@@ -29,27 +29,13 @@ local sorcerers_tonban = {
 }
 
 local sorcerers_earring_hp_threshold = 360 -- HP at which Sorcerer's Earring set is equipped
-local sorcerers_earring = { -- 1440
-    Main = 'Terra\'s Staff',
-    --Ammo = 'Hedgehog Bomb',
-    Head = 'Dream Ribbon',
-          --Neck = 'Pch. Collar',
-    Ear1 = 'Cassie Earring',
-    Ear2 = 'Sorcerer\'s Earring',
-    Body = 'Sorcerer\'s Coat',
-    --Hands = 'Garden Bangles',
-    Ring1 = 'Bomb Queen Ring',
-    --Ring2 = 'Sattva Ring',
-    --Back = 'Gigant Mantle',
-    --Waist = 'Ocean Sash',
-    Legs = 'Igqira Lappas',
-    --Feet = 'Marine M Boots',
-}
+local sorcerers_earring = {}
+
 local sets = {
     Idle = {
    		Main = 'Terra\'s staff', 
 		Ammo = 'Dream Sand',
-        Head = 'Genie Tiara',
+        Head = 'Dream Ribbon',
         Neck = 'Prudence torque',
         Neck = 'Jeweled Collar',
         Ear1 = 'Novia Earring',
@@ -153,18 +139,7 @@ local sets = {
         Ear1 = 'Loquac. Earring',
         Feet = 'Rostrum Pumps',
     },
-    Casting = { -- Default SIRD used for Idle sets
-        Main = 'Hermit\'s Wand', -- 25
-        -- Sub = 'Genbu\'s Shield',
-        Head = 'Nashira Turban', -- 10
-        Neck = 'Willpower Torque', -- 5
-        Ear1 = 'Merman\'s Earring',
-		Ear2 = 'Magnetic Earring',
-        Waist = 'Silver Obi +1', -- 8
-        Feet = 'Wizard\'s Sabots', -- 20
-        Ammo = 'Tiphia Sting',
-        -- Back = 'Umbra Cape',
-    },
+
     SIRD = { -- Used on Stoneskin, Blink, Aquaveil and Utsusemi casts regardless of Override set. If you wish to remain in FireRes etc. during casts, leave empty.
         Main = 'Hermit\'s Wand', -- 25
         -- Sub = 'Genbu\'s Shield',
@@ -177,6 +152,10 @@ local sets = {
         Ammo = 'Tiphia Sting',
         -- Back = 'Umbra Cape',
     },
+    SIRD_NIN = {
+        Sub = { Name = 'Eremite\'s Wand', Priority = 100 },
+    },
+
     Yellow = { -- This will override Precast if /lag is turned on or the spell casting time is too short. e.g. Tier 1: "Stone"
 		Ammo = 'Tiphia Sting', -- 25
 		Head = 'Zenith Crown',	--50
@@ -456,6 +435,8 @@ local sets = {
         -- Back = 'Mahatma Cape',
     },
 
+    VileElixir = {}.
+
     LockSet1 = {},
     LockSet2 = {},
     LockSet3 = {},
@@ -483,7 +464,6 @@ sets.sorcerers_tonban = sorcerers_tonban
 sets.sorcerers_earring = sorcerers_earring
 profile.Sets = gcmage.AppendSets(sets)
 
-
 profile.HandleAbility = function()
     gcmage.DoAbility()
 end
@@ -493,9 +473,11 @@ profile.HandleItem = function()
 end
 
 profile.HandlePreshot = function()
+    gcmage.DoPreshot(sets.Preshot, gFunc.Combine(sets.Preshot, sets.Ranged), snapShotValue)
 end
 
 profile.HandleMidshot = function()
+    gcmage.DoMidshot(sets, gFunc.Combine(sets.Preshot, sets.Ranged))
 end
 
 profile.HandleWeaponskill = function()
@@ -542,16 +524,18 @@ profile.HandleDefault = function()
         end
     end
 
+    gcmage.DoDefaultOverride()
+
     gFunc.EquipSet(gcinclude.BuildLockableSet(gData.GetEquipment()))
 end
 
 profile.HandlePrecast = function()
     local player = gData.GetPlayer()
     if (player.SubJob == 'RDM' and warlocks_mantle.Back) then
-        gcmage.DoPrecast(sets, fastCastValue + 0.02)
+        gcmage.DoPrecast(sets, fastCastValue + 0.02, 0)
         gFunc.EquipSet('warlocks_mantle')
     else
-        gcmage.DoPrecast(sets, fastCastValue)
+        gcmage.DoPrecast(sets, fastCastValue, 0)
     end
 end
 
