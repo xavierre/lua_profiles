@@ -29,7 +29,7 @@ local claustrum = {
 local fire_staff = {
     Main = 'Vulcan\'s Staff',
     Sub = 'displaced',
-}6
+}
 local earth_staff = {
     Main = 'Terra\'s Staff',
     Sub = 'displaced',
