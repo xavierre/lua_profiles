@@ -166,7 +166,7 @@ local sets = {
         Ear2 = 'Wyvern Earring',
     },
     TP_THF = {
-        --Ear2 = 'Pilferer\'s Earring',
+        Ear2 = 'Pilferer\'s Earring',
     },
 
     WS = {
@@ -174,7 +174,7 @@ local sets = {
         Neck = 'Thunder Gorget',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Merman\'s Earring',
-        Hands = 'Mel. Gloves +1',
+        Hands = 'Alkyoneus\'s Brc.',
         Ring1 = 'Flame Ring',
         Ring2 = 'Flame Ring',
         Back = 'Forager\'s Mantle',
@@ -187,9 +187,9 @@ local sets = {
         Head = 'Genbu\'s Kabuto',
         Neck = 'Light Gorget',
         Ear1 = 'Brutal Earring',
-        Ear2 = 'Merman\'s Earring',
+        Ear2 = 'Cassie Earring',
         Body = 'Kirin\'s Osode',
-        Hands = 'Mel. Gloves +1',
+        Hands = 'Alkyoneus\'s Brc.',
         Ring1 = 'Flame Ring',
         -- Ring1 = 'Begrudging Ring',
         Ring2 = 'Flame Ring',
@@ -208,7 +208,6 @@ local sets = {
     WS_RagingFists = {
         Neck = 'Faith Torque',
         Body = 'Kirin\'s Osode',
-        Hands = 'Mel. Gloves +1',
     },
 
     WS_AsuranFists = {
@@ -235,7 +234,7 @@ local sets = {
         Feet = 'Dune Boots',
     },
 
-        Chakra = {
+    Chakra = { -- VIT based
         Ammo = { Name = 'Happy Egg', Priority = 60 },
         Head = { Name = 'Genbu\'s Kabuto', Priority = 60 },
         Neck = 'Fortitude Torque',
@@ -296,7 +295,7 @@ local sets = {
 
     HundredFists_Focus = {
         Ring1 = 'Flame Ring',
-        Ring2 = 'Triumph Ring',
+        Ring2 = 'Flame Ring',
     },
     
 
