@@ -27,6 +27,8 @@ local sets = {
     WindRes = {},
     WaterRes = {},
     Evasion = {},
+    Movement_TP = {},
+
 
     Precast = {
         ear1 = { Name = 'Loquac. Earring', Priority = 100 },
