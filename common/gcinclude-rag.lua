@@ -11,6 +11,9 @@ local toggleDisplayHeadOnAbility = true -- Forces blinks on JA usage.
 local toggleDisplayHeadOnAbility = false
 
 -- Comment out the equipment within these sets if you do not have them or do not wish to use them
+local resentment_cape = {
+    --Back = 'Resentment Cape',
+}
 local kingdom_aketon = {
     -- Body = 'Kingdom Aketon',
 }
@@ -68,6 +71,7 @@ conquest = gFunc.LoadFile('common\\conquest.lua')
 local gcinclude = {}
 
 gcinclude.horizon_safe_mode = horizon_safe_mode
+gcinclude.horizon_legal_mode = horizon_legal_mode
 
 local Overrides = T{ 'idle','dt','pdt','mdt','fireres','fres','iceres','ires','bres','lightningres','lres','tres','earthres','eres','sres','windres','wires','ares','waterres','wares','wres','evasion','eva','override','or' }
 local Commands = T{ 'kite','lock','lockset','horizonmode' }
@@ -116,6 +120,8 @@ local OverrideNameTable = {
     ['override'] = 'Override'
 }
 
+local notResentmentCapeJobs = T{ 'WHM', 'BLM', 'SMN', 'SCH', 'PUP' }
+
 local isMageJobs = T{ 'RDM','BLM','WHM','SMN','BRD' }
 
 local lastIdleSet = 'Normal'
@@ -145,6 +151,43 @@ function gcinclude.RetryLoad()
         end
     else
         gcinclude.RetryLoad:once(1)
+    end
+end
+
+function gcinclude.DoCancel(spell, delay)
+    if (not horizon_legal_mode) then
+        local index = spell.Resource.Index
+        local recast = AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(index)
+
+        if (recast == 0) then
+            if (spell.Name == 'Utsusemi: Ichi') then
+                local function delayUtsusemiCancel()
+                    if (gData.GetBuffCount(66) == 1) then
+                        AshitaCore:GetChatManager():QueueCommand(-1, '/cancel 66')
+                    elseif (gData.GetBuffCount(444) == 1) then
+                        AshitaCore:GetChatManager():QueueCommand(-1, '/cancel 444')
+                    end
+                end
+
+                delayUtsusemiCancel:once(delay)
+            elseif (spell.Name == 'Stoneskin') then
+                local function delayStoneskinCancel()
+                    if (gData.GetBuffCount('Stoneskin') == 1) then
+                        AshitaCore:GetChatManager():QueueCommand(-1, '/cancel Stoneskin')
+                    end
+                end
+
+                delayStoneskinCancel:once(delay)
+            elseif (spell.Name == 'Sneak') then
+                local function delaySneakCancel()
+                    if (gData.GetBuffCount('Sneak') == 1) then
+                        AshitaCore:GetChatManager():QueueCommand(-1, '/cancel Sneak')
+                    end
+                end
+
+                delaySneakCancel:once(delay - 0.4)
+            end
+        end
     end
 end
 
@@ -245,12 +288,9 @@ function gcinclude.DoDefaultOverride(isMelee)
     if (environment.Area ~= nil) and (Windy:contains(environment.Area)) then gFunc.EquipSet('federation_aketon') end
 
     if (gcdisplay.IdleSet == 'DT') then
-        if (isMelee) then
-            gFunc.EquipSet('DT')
-        else
-            if (environment.Time >= 6 and environment.Time < 18) then
-                gFunc.EquipSet('DT')
-            else
+        gFunc.EquipSet('DT')
+        if (not isMelee) then
+            if (environment.Time < 6 and environment.Time >= 18) then
                 gFunc.EquipSet('DTNight')
             end
         end
@@ -274,7 +314,12 @@ function gcinclude.DoDefaultOverride(isMelee)
         end
     end
 
-    if (gcdisplay.IdleSet == 'MDT') then gFunc.EquipSet('MDT') end
+    if (gcdisplay.IdleSet == 'MDT')
+        then gFunc.EquipSet('MDT')
+        if (conquest:GetOutsideControl() and not notResentmentCapeJobs:contains(player.MainJob)) then
+            gFunc.EquipSet('resentment_cape')
+        end
+    end
     if (gcdisplay.IdleSet == 'FireRes') then gFunc.EquipSet('FireRes') end
     if (gcdisplay.IdleSet == 'IceRes') then gFunc.EquipSet('IceRes') end
     if (gcdisplay.IdleSet == 'LightningRes') then gFunc.EquipSet('LightningRes') end
@@ -293,6 +338,12 @@ function gcinclude.DoDefaultOverride(isMelee)
         end
     else
         restTimestampRecorded = false
+    end
+
+    if (gData.GetBuffCount('Sleep') > 0 and not horizon_legal_mode) then
+        if (isMelee or (player.MainJob ~= 'BLM' and gcdisplay.GetCycle('TP') ~= 'Off')) then
+            gFunc.EquipSet('opo_opo_necklace')
+        end
     end
 end
 
@@ -365,6 +416,7 @@ function gcinclude.BuildLockableSet(equipment)
 end
 
 function gcinclude.AppendSets(sets)
+    sets.resentment_cape = resentment_cape
     sets.kingdom_aketon = kingdom_aketon
     sets.republic_aketon = republic_aketon
     sets.federation_aketon = federation_aketon
@@ -372,6 +424,7 @@ function gcinclude.AppendSets(sets)
     sets.dream_boots = dream_boots
     sets.dream_mittens = dream_mittens
     sets.skulkers_cape = skulkers_cape
+    sets.opo_opo_necklace = opo_opo_necklace
 
     return sets
 end

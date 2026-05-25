@@ -131,6 +131,13 @@ local controllerNames = T{
 
 --Any zone listed here will always report this conquest.
 local fixedControl = T{
+    [33] = controllerNames[4], --Al'Taieu
+    [34] = controllerNames[4], --Grand Palace of Hu'Xzoi 
+    [35] = controllerNames[4], --The Garden of Ru'Hmet
+    [36] = controllerNames[4], --Empyreal Paradox
+    [37] = controllerNames[4], --Temenos
+    [38] = controllerNames[4], --Apollyon
+
     [39] = controllerNames[4], --Dynamis - Valkurm
     [40] = controllerNames[4], --Dynamis - Buburimu
     [41] = controllerNames[4], --Dynamis - Qufim
