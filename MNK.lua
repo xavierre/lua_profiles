@@ -51,7 +51,7 @@ local sets = {
         Hands = 'Mel. Gloves +1',
         Waist = 'Black Belt',
         Legs = 'Byakko\'s Haidate',
-        Feet = 'Melee Gaiters',
+        Feet = 'Dune Boots',
     },
     Movement = {},
 
@@ -99,8 +99,7 @@ local sets = {
         Back = 'Boxer\'s Mantle',
         Waist = 'Black Belt',
         Legs = 'Tpl. Hose +1', -- 3
-        Feet = 'Melee Gaiters', -- 5
-        -- Feet = 'Dune Boots',
+        Feet = 'Dune Boots',
     },
 
     Override = { -- An additional override set explicitly to be used for sets such as crafting, HELM, fishing, or any other special sets such as DRK 2HR, MNK Counter etc. n.b. Any unused Resist or Evasion set can be used similarly.
@@ -135,7 +134,7 @@ local sets = {
         Head = 'Panther Mask +1',
         Neck = 'Faith Torque',
         Ear1 = 'Brutal Earring',
-        Body = 'Kirin\'s Osode',
+        Body = 'Shura Togi',
         Hands = 'Mel. Gloves +1',
         Ring1 = 'Toreador\'s Ring',
         --Ring1 = 'Begrudging Ring',
@@ -157,6 +156,7 @@ local sets = {
         Ring2 = 'Toreador\'s Ring',
     },
     TP_Focus = {
+        body = 'Kirin\'s Osode',
         Ring1 = 'Flame Ring',
         Ring2 = 'Flame Ring',
     },
@@ -290,7 +290,7 @@ local sets = {
         Back = 'Forager\'s Mantle',
         Waist = 'Black Belt',
         Legs = 'Shura Haidate',
-        Feet = 'Creek F Clomps',
+        Feet = 'Dune Boots',
     },
 
     HundredFists_Focus = {
@@ -298,6 +298,9 @@ local sets = {
         Ring2 = 'Flame Ring',
     },
     
+    opo_opo_necklace = {
+        -- Neck = 'Opo-opo Necklace',
+    },
 
     Weapon_Loadout_1 = {
         Main = 'Spharai',

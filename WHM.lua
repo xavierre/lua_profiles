@@ -1,6 +1,7 @@
 local profile = {}
 
 local fastCastValue = 0.04 -- 4% from gear listed in Precast set. Note: Do NOT include cure clogs / ruckes rung here.
+local cureCastMeritValue = 0.20 -- The Cure Cast Time Merits you have on your character (up to 0.2 in era).
 
 local ninSJMaxMP = nil -- The Max MP you have when /nin in your idle set
 local rdmSJMaxMP = 1024 -- The Max MP you have when /rdm in your idle set
@@ -388,10 +389,10 @@ end
 profile.HandlePrecast = function()
     local player = gData.GetPlayer()
     if (player.SubJob == 'RDM' and warlocks_mantle.Back) then
-        gcmage.DoPrecast(sets, fastCastValue + 0.02)
+        gcmage.DoPrecast(sets, fastCastValue + 0.02, cureCastMeritValue)
         gFunc.EquipSet('warlocks_mantle')
     else
-        gcmage.DoPrecast(sets, fastCastValue)
+        gcmage.DoPrecast(sets, fastCastValue, cureCastMeritValue)
     end
 end
 
