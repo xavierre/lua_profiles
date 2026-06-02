@@ -213,7 +213,7 @@ local sets = {
         Body = 'Errant Hpl.',
         Ring1 = 'Tamas Ring',
 		Feet = 'Cleric\'s duckbills',
-    --  Back = 'Merciful Cape',        
+        Back = 'Merciful Cape',        
     },
     Stoneskin = {
 		Main = 'Kirin\'s pole',
