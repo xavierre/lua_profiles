@@ -69,7 +69,7 @@ local sets = {
         Body = 'Errant Hpl.',
 		Hands = 'Hydra Gloves',
 		Legs = 'Hydra Brais',
-		Feet = 'Hydra gaiters',
+		Feet = 'Hydra Gaiters',
         Waist = 'Duelist\'s Belt',
     },
     Town = {
@@ -767,6 +767,10 @@ profile.HandleDefault = function()
     end
 
     gFunc.EquipSet(gcinclude.BuildLockableSet(gData.GetEquipment()))
+end
+
+profile.HandleDefaultOverride = function()
+    gcmage.DoDefaultOverride()
 end
 
 profile.HandlePrecast = function()
