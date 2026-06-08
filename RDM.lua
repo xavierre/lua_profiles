@@ -758,6 +758,7 @@ profile.HandleDefault = function()
     end
 
     gcmage.DoDefault(sets, ninSJMaxMP, whmSJMaxMP, blmSJMaxMP, nil, drkSJMaxMP)
+    gcmage.DoDefaultOverride()
 
     if (player.MP <= 40) then
         gFunc.EquipSet('blue_cotehardie')
@@ -767,10 +768,6 @@ profile.HandleDefault = function()
     end
 
     gFunc.EquipSet(gcinclude.BuildLockableSet(gData.GetEquipment()))
-end
-
-profile.HandleDefaultOverride = function()
-    gcmage.DoDefaultOverride()
 end
 
 profile.HandlePrecast = function()
