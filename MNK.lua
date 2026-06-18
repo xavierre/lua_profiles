@@ -339,6 +339,8 @@ local sets = {
 profile.SetMacroBook = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 12')
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 2')
+
+    (function() AshitaCore:GetChatManager():QueueCommand(1, '/lockstyleset 08'); end):once(3);
 end
 
 --[[
