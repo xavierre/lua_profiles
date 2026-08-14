@@ -235,7 +235,7 @@ local sets = {
     },
 
     Chakra = { -- VIT based
-        Ammo = { Name = 'Happy Egg', Priority = 60 },
+        Ammo = { Name = 'Bibiki Seashell', Priority = 60 },
         Head = { Name = 'Genbu\'s Kabuto', Priority = 60 },
         Neck = 'Fortitude Torque',
         Ear1 = 'Cassie Earring',
@@ -340,7 +340,7 @@ profile.SetMacroBook = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 12')
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 2')
 
-    (function() AshitaCore:GetChatManager():QueueCommand(1, '/lockstyleset 08'); end):once(3);
+    ashita.tasks.once(3, function() AshitaCore:GetChatManager():QueueCommand(1, '/lockstyleset 8'); end);
 end
 
 --[[
