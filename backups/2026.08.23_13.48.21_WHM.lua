@@ -36,19 +36,18 @@ local asklepios = { -- Used for Cures with Mjollnir when /NIN
 
 local sets = {
     Idle = {
-        Main = 'Terra\'s Staff',
+	    Main = 'Terra\'s Staff',
         Head = 'Dream Ribbon',
+		Body = 'Noble\'s tunic',
         Neck = 'Jeweled Collar',
         Ear1 = 'Loquac. Earring',
-        Ear2 = 'Stealth earring',
-        Body = 'Noble\'s tunic',
-        Hands = 'Nashira gages',
-        Ring1 = 'Tamas Ring',
-        Ring2 = 'Ether ring',
-        Back = 'Altruistic Cape',
+		Ear2 = 'Stealth earring',
+		Hands = 'Nashira gages',
         Waist = 'Cleric\'s Belt',
-        Legs = 'Nashira Seraweels',
-        Feet = 'Nashira Crackows',
+		Legs = 'Nashira Seraweels',
+		Ring1 = 'Tamas Ring',
+		Ring2 = 'Ether ring',
+		feet = 'Nashira Crackows',        
     },
     IdleALT = {},
     IdleMaxMP = {

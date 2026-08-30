@@ -32,7 +32,7 @@ local sets = {
         Ring2 = 'Merman\'s Ring',
         Body = 'Mel. Cyclas +1',
         -- Hands = 'Dst. Mittens +1',
-        Waist = 'Warwolf Belt',
+        Waist = 'Black Belt',
         -- Legs = 'Dst. Subligar +1',
         -- Feet = 'Dst. Leggings +1',
     },
