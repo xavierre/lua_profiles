@@ -157,7 +157,7 @@ local sets = {
     },
     TP_Focus = {
         body = 'Kirin\'s Osode',
-        Ring1 = 'Rajas Ring',
+        Ring1 = 'Flame Ring',
         Ring2 = 'Flame Ring',
     },
 
@@ -175,7 +175,7 @@ local sets = {
         Ear1 = 'Brutal Earring',
         Ear2 = 'Merman\'s Earring',
         Hands = 'Alkyoneus\'s Brc.',
-        Ring1 = 'Rajas Ring',
+        Ring1 = 'Flame Ring',
         Ring2 = 'Flame Ring',
         Back = 'Forager\'s Mantle',
         Waist = 'Black Belt',
@@ -191,7 +191,7 @@ local sets = {
         Body = 'Kirin\'s Osode',
         Hands = 'Alkyoneus\'s Brc.',
         -- Ring1 = 'Begrudging Ring',
-        Ring1 = 'Rajas Ring',
+        Ring1 = 'Flame Ring',
         Ring2 = 'Flame Ring',
         Back = 'Forager\'s Mantle',
         Waist = 'Warwolf Belt',
@@ -200,9 +200,8 @@ local sets = {
     },
 
     WS_HighAcc = {
-        Neck = 'Peacock Amulet',
-        -- Ring1 = 'Begrudging Ring',
         Ring1 = 'Toreador\'s Ring',
+        -- Ring1 = 'Begrudging Ring',
         Ring2 = 'Toreador\'s Ring',
     },
 
